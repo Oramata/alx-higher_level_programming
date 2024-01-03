@@ -1,2 +1,3 @@
-#!/bin/python3
+#!/bin/bash
 print("Best School")
+
