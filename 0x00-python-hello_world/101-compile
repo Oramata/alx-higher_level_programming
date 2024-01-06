@@ -8,5 +8,7 @@ fi
 echo "Compiling $PYFILE ..."
 python3 -m compileall -b $PYFILE
 
-compiled_file=$(echo $PYFILE | sed 's/\.py$//')  # Remove .py extension
-mv "${compiled_file}.pyc" "${PYFILE}c"
+if [[ $PYFILE == *.py ]]; then
+	output_file=${PYFILE%.*}.pyc
+	mv ${PYFILE}c $output_file
+fi
