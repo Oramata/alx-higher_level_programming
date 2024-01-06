@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ -z "$PYFILE" ]]; then
+    echo "Error: PYFILE environment variable is not set."
+    exit 1
+fi
+
+echo "Compiling $PYFILE ..."
+python3 -m compileall -b $PYFILE
+
+compiled_file=$(echo $PYFILE | sed 's/\.py$//')  # Remove .py extension
+mv "${compiled_file}.pyc" "${PYFILE}c"
